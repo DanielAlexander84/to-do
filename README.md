@@ -1,7 +1,5 @@
 # Kleine Einführung der Todo-App
 
-In the project directory, you can run:
-
 Im Projektordner im Terminal kann man folgendes ausführen:
 
 ### `npm start`
