@@ -8,11 +8,11 @@ function ToDoList() {
   const [todos, setTodos] = useState([{ text: placeholderTodoText }])
 
   useEffect(() => {
-    setTodos(JSON.parse(window.sessionStorage.getItem("todos")))
+    setTodos(JSON.parse(window.localStorage.getItem("todos")))
   }, [])
 
   useEffect(() => {
-    window.sessionStorage.setItem("todos", JSON.stringify(todos))
+    window.localStorage.setItem("todos", JSON.stringify(todos))
   }, [todos])
 
   const addTodo = (text) => {
@@ -29,7 +29,7 @@ function ToDoList() {
     }
   }
 
-  if (todos.length > 1 && todos[0].text === placeholderTodoText) {
+  if (todos && todos.length > 1 && todos[0].text === placeholderTodoText) {
     setTodos(todos.filter((item, index) => index !== 0))
   }
 
@@ -44,6 +44,7 @@ function ToDoList() {
           completeTodo={completeTodo}
         />
       ))}
+      <h3>Neues Todo erstellen</h3>
       <ToDoForm addTodo={addTodo} />
     </div>
   )
